@@ -1,4 +1,5 @@
 import Logo from "@/components/ui/logo";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AuthLayout({
@@ -28,8 +29,8 @@ export default function AuthLayout({
           </div>
 
           {/* Right Section - Illustration Area */}
-          <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-purple-600 to-purple-800 relative">
-           hi
+          <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-purple-500 to-purple-600 relative">
+           <Image src="/authimg/signin.png" alt="Auth Image" width={400} height={600}/>
           </div>
         </div>
       </div>
