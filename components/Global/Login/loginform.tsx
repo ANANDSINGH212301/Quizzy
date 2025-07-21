@@ -28,7 +28,7 @@ const LoginForm = () => {
   return (
     <div className="w-full max-w-md mx-auto">
       {/* Header */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-7">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Sign In</h1>
         <p className="text-gray-600">Welcome back to Quizzy!</p>
       </div>

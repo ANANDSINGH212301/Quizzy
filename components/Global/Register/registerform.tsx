@@ -28,10 +28,10 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto">
       {/* Header */}
-      <div className="text-center mb-4">
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+      <div className="text-center mb-3">
+        <h1 className="text-3xl font-bold text-gray-900 mb-1">
           Create Account
         </h1>
         <p className="text-gray-600 text-xs">
@@ -159,7 +159,7 @@ const RegisterForm = () => {
               value={formData.password}
               onChange={handleInputChange}
               placeholder="Password"
-            className="w-full pl-10 pr-16 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs transition-all duration-200"
+              className="w-full pl-10 pr-16 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs transition-all duration-200"
               required
             />
             <button
@@ -238,13 +238,13 @@ const RegisterForm = () => {
         {/* Sign Up Button */}
         <button
           type="submit"
-          className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-2 px-2 rounded-sm text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-2 px-2 rounded-sm text-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         >
           Create Account
         </button>
 
         {/* Login Link */}
-        <p className="text-center text-gray-700 text-xs">
+        <p className="text-center text-gray-700 text-sm">
           Already have an account?{" "}
           <Link
             href="/login"
@@ -259,7 +259,7 @@ const RegisterForm = () => {
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-gray-300" />
           </div>
-          <div className="relative flex justify-center text-xs">
+          <div className="relative flex justify-center text-sm">
             <span className="px-1 bg-white text-gray-500">
               Or continue with
             </span>
@@ -269,7 +269,7 @@ const RegisterForm = () => {
         {/* Social Login Button */}
         <button
           type="button"
-          className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-sm hover:bg-gray-50 text-xs transition-colors duration-200"
+          className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-sm hover:bg-gray-50 text-md font-3xl"
         >
           <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24">
             <path
