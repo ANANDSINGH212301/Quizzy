@@ -42,7 +42,7 @@ const links = [
 export function AppSidebar() {
   const pathname = usePathname();
   return (
-    <Sidebar className="bg-white p-2 ">
+    <Sidebar className="bg-white p-2 hover:shadow-lg transition-shadow duration-200">
       <SidebarHeader className="  bg-white">
         <Link href="/" className="flex items-center space-x-2 pl-4">
           <Logo />
@@ -50,7 +50,7 @@ export function AppSidebar() {
         </Link>
 
       </SidebarHeader>
-      <Separator />
+      <Separator className="mt-[11px]" />
 
       <SidebarContent className="bg-white pt-4">
         <DashboardSidebarMenu />
