@@ -1,12 +1,15 @@
+// ProfilePage.tsx
 
-import React from 'react'
+import React from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
-const page = () => {
+const ProfilePage = () => {
   return (
-    <div>
-      <h1>Settings Page</h1>
-    </div>
-  )
-}
+    <>
+     
+    </>
+  );
+};
 
-export default page 
+export default ProfilePage;
