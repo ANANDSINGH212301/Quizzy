@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 "use client";
+=======
+'use client'
+>>>>>>> 6a60243a2d2c995c92270cb8fd67af4b8564b44f
 
 import React from "react";
 import {
@@ -11,8 +15,22 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import ProfileAvatar from "./profile";
+import { useAuth } from "@/lib/AuthContext";
+import { useRouter } from "next/navigation";
 
+<<<<<<< HEAD
 const DashboardHeader = () => {
+=======
+const DasboardHeader = () => {
+  const { logout, user } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/login');
+  };
+
+>>>>>>> 6a60243a2d2c995c92270cb8fd67af4b8564b44f
   return (
     <header className="flex items-center justify-between h-[4.1rem] px-4 shadow-sm border-b border-gray-200 bg-white">
       {/* Left: Sidebar Trigger */}
@@ -23,6 +41,7 @@ const DashboardHeader = () => {
         </h1>
       </div>
 
+<<<<<<< HEAD
       {/* Right: Profile Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -74,6 +93,31 @@ const DashboardHeader = () => {
         </DropdownMenuContent>
       </DropdownMenu>
     </header>
+=======
+      {/* Avatar with Fixed Size */}
+      <div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <div className="w-10 h-10 rounded-full overflow-hidden cursor-pointer">
+              <ProfileAvatar />
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>Billing</DropdownMenuItem>
+            <DropdownMenuItem>Team</DropdownMenuItem>
+            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={handleLogout} className="text-red-600">
+              Logout
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </div>
+>>>>>>> 6a60243a2d2c995c92270cb8fd67af4b8564b44f
   );
 };
 

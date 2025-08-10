@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Toaster } from "react-hot-toast";
-
+import { AuthProvider } from "@/lib/AuthContext";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Quizzy",
@@ -14,11 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <AuthProvider>
     <html lang="en">
       <body>
         {children}
         <Toaster position="top-right" reverseOrder={false} />
       </body>
     </html>
+    </AuthProvider>
   );
 }
