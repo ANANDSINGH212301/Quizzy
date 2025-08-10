@@ -1,18 +1,10 @@
-<<<<<<< Updated upstream
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
-=======
-'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/lib/AuthContext';
 import { useRouter } from 'next/navigation';
 import { loginSchema } from '@/lib/schema/authschema';
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+import * as z from "zod";
+
 
 const LoginForm = () => {
   const { login } = useAuth();
@@ -38,13 +30,9 @@ const LoginForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
     console.log("Login submitted:", formData);
     // Email/password login logic here
-=======
-=======
->>>>>>> Stashed changes
     setError('');
     setIsDisabled(true);
     
@@ -59,9 +47,9 @@ const LoginForm = () => {
       router.push('/dashboard');
     } catch (err: any) {
       if (err instanceof z.ZodError) {
-        // If Zod validation error occurs, display the validation error messages
-        const errorMessages = err.errors.map((e) => e.message).join(', ');
-        setError(errorMessages);  // Display validation errors to the user
+       
+        // const errorMessages = err.errors.map((e) => e.message).join(', ');
+        // setError(errorMessages);  // Display validation errors to the user
       } else {
         // If other errors occur (e.g., server issues, incorrect credentials)
         setError(err.message || 'Login failed. Please try again.');
@@ -69,10 +57,7 @@ const LoginForm = () => {
     } finally {
       setIsDisabled(false);  // Re-enable form to allow further actions if needed
     }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
   };
 
   return (

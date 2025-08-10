@@ -1,29 +1,3 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-// DashboardPage.tsx
-
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Input } from "@/components/ui/input";
-import { UsersIcon, TrophyIcon, ActivityIcon, BarChart3 } from "lucide-react";
-
-const DashboardPage = () => {
-  return (
-    <div className="flex h-screen">
-      {/* Main content */}
-      <main className="flex-1 bg-gray-100 p-6 overflow-y-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-semibold text-purple-800">Welcome Back!</h1>
-          <Input placeholder="Search Quizzes" className="w-64" />
-        </div>
-=======
-=======
->>>>>>> Stashed changes
-'use client'
-
 import React from 'react'
 import { useAuth } from '@/lib/AuthContext'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -38,8 +12,10 @@ import {
   Target,
   Award
 } from 'lucide-react'
+import { Progress } from '@/components/ui/progress'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
-const Dashboardpage = () => {
+const DashboardPage = () => {
   const { user, loading } = useAuth()
   const [mounted, setMounted] = React.useState(false)
 
@@ -96,6 +72,8 @@ const Dashboardpage = () => {
   }
 
   return (
+    <div>
+      <main>
     <div className="p-6 space-y-6">
       {/* Welcome Header */}
       <div className="flex items-center justify-between">
@@ -247,11 +225,9 @@ const Dashboardpage = () => {
         </Card>
       )}
     </div>
-  )
-}
->>>>>>> Stashed changes
 
-        {/* Metrics */}
+
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <Card className="bg-purple-100">
             <CardContent className="p-4">

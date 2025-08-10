@@ -204,19 +204,9 @@ const RegisterForm = () => {
         {/* Sign Up Button */}
         <button
           type="submit"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-          className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-2 rounded-sm text-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-=======
-          disabled={isDisabled}
-          className="w-full bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
->>>>>>> Stashed changes
-=======
-          disabled={isDisabled}
-          className="w-full bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
->>>>>>> Stashed changes
+          className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-2 px-2 rounded-sm text-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         >
-          {isDisabled ? "Creating Account..." : "Create Account"}
+          Create Account
         </button>
 
         {/* Login Link */}
