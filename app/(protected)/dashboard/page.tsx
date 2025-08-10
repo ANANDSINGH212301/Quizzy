@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // DashboardPage.tsx
 
 import React from "react";
@@ -19,6 +20,8 @@ const DashboardPage = () => {
           <Input placeholder="Search Quizzes" className="w-64" />
         </div>
 =======
+=======
+>>>>>>> Stashed changes
 'use client'
 
 import React from 'react'

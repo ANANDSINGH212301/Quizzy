@@ -9,6 +9,9 @@ import Link from 'next/link';
 import { useAuth } from '@/lib/AuthContext';
 import { useRouter } from 'next/navigation';
 import { loginSchema } from '@/lib/schema/authschema';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 const LoginForm = () => {
@@ -36,9 +39,12 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     console.log("Login submitted:", formData);
     // Email/password login logic here
 =======
+=======
+>>>>>>> Stashed changes
     setError('');
     setIsDisabled(true);
     
@@ -63,6 +69,9 @@ const LoginForm = () => {
     } finally {
       setIsDisabled(false);  // Re-enable form to allow further actions if needed
     }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   };
 

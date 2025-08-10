@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { Toaster } from "react-hot-toast";
 
+=======
+import { AuthProvider } from "@/lib/AuthContext";
+>>>>>>> Stashed changes
 =======
 import { AuthProvider } from "@/lib/AuthContext";
 >>>>>>> Stashed changes
