@@ -3,12 +3,12 @@ import Logo from "@/components/ui/logo";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#F7F5FA] text-zinc-600 border-t border-zinc-200">
+    <footer className="bg-[#F7F5FA] text-zinc-600 border-t border-[#DDD9FF]">
       <div className="container px-4 py-6 mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Brand & Logo */}
         <div className="flex items-center gap-2">
           <Logo />
-          <span className="text-xl font-semibold text-[#6C4AB6]">Quizzy</span>
+          <span className="text-xl font-semibold text-[#432dd7]">Quizzy</span>
         </div>
 
         {/* Copyright */}
@@ -16,7 +16,7 @@ const Footer = () => {
           © 2025 Quizzy —{" "}
           <a
             href="https://twitter.com/knyttneve"
-            className="text-[#6C4AB6] hover:underline"
+            className="text-[#432dd7] hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -85,7 +85,7 @@ const Footer = () => {
             <a
               key={index}
               href={item.href}
-              className="text-zinc-500 hover:text-[#6C4AB6] transition-colors"
+              className="text-zinc-500 hover:text-[#432dd7] transition-colors"
             >
               {item.icon}
             </a>

@@ -238,7 +238,7 @@ const RegisterForm = () => {
         {/* Sign Up Button */}
         <button
           type="submit"
-          className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-2 px-2 rounded-sm text-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-2 rounded-sm text-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         >
           Create Account
         </button>

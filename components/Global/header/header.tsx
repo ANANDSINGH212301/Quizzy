@@ -66,7 +66,7 @@ const navigationLinks = [
 
 export default function Header() {
   return (
-    <header className="border border-[#EDE9F9] bg-[#FAF8FF] px-4 py-2 mx-2 my-1 md:px-6 absolute top-0 left-0 right-0 z-50 rounded-lg shadow-sm">
+    <header className="border border-[#DDD9FF] bg-[#F9F8FF] px-4 py-2 mx-2 my-1 md:px-6 absolute top-0 left-0 right-0 z-50 rounded-lg shadow-sm">
       <div className="flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           {/* Mobile Menu */}
@@ -90,18 +90,18 @@ export default function Header() {
                 </svg>
               </Button>
             </PopoverTrigger>
-            <PopoverContent align="start" className="w-64 p-2 bg-white rounded-lg border border-[#EDE9F9]">
+            <PopoverContent align="start" className="w-64 p-2 bg-white rounded-lg border border-[#DDD9FF]">
               <NavigationMenu className="max-w-none *:w-full">
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
                     <NavigationMenuItem key={index} className="w-full">
                       {link.submenu ? (
                         <>
-                          <div className="text-sm text-[#6B4EFF] px-2 py-1.5 font-medium">{link.label}</div>
+                          <div className="text-sm text-[#432dd7] px-2 py-1.5 font-medium">{link.label}</div>
                           <ul>
                             {link.items.map((item, itemIndex) => (
                               <li key={itemIndex}>
-                                <NavigationMenuLink href={item.href} className="block px-2 py-1.5 text-sm hover:text-[#6B4EFF]">
+                                <NavigationMenuLink href={item.href} className="block px-2 py-1.5 text-sm hover:text-[#432dd7]">
                                   {item.label}
                                 </NavigationMenuLink>
                               </li>
@@ -109,7 +109,7 @@ export default function Header() {
                           </ul>
                         </>
                       ) : (
-                        <NavigationMenuLink href={link.href} className="py-1.5 px-2 text-sm hover:text-[#6B4EFF]">
+                        <NavigationMenuLink href={link.href} className="py-1.5 px-2 text-sm hover:text-[#432dd7]">
                           {link.label}
                         </NavigationMenuLink>
                       )}
@@ -122,7 +122,7 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <div className="flex items-center gap-6">
-            <a href="#" className="text-[#6B4EFF] hover:opacity-80">
+            <a href="#" className="text-[#432dd7] hover:opacity-80">
               <Logo />
             </a>
             <NavigationMenu viewport={false} className="max-md:hidden">
@@ -131,14 +131,14 @@ export default function Header() {
                   <NavigationMenuItem key={index}>
                     {link.submenu ? (
                       <>
-                        <NavigationMenuTrigger className="text-[#6B4EFF] hover:bg-[#EDE9F9] bg-transparent px-2 py-1.5 font-medium rounded-md">
+                        <NavigationMenuTrigger className="text-[#432dd7] hover:bg-[#DDD9FF] bg-transparent px-2 py-1.5 font-medium rounded-md">
                           {link.label}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent className="z-50 p-2 bg-white rounded-md border border-[#EDE9F9] shadow-md">
+                        <NavigationMenuContent className="z-50 p-2 bg-white rounded-md border border-[#DDD9FF] shadow-md">
                           <ul className={cn(link.type === "description" ? "min-w-64" : "min-w-48")}>
                             {link.items.map((item, itemIndex) => (
                               <li key={itemIndex}>
-                                <NavigationMenuLink href={item.href} className="block px-2 py-1.5 hover:text-[#6B4EFF]">
+                                <NavigationMenuLink href={item.href} className="block px-2 py-1.5 hover:text-[#432dd7]">
                                   {link.type === "icon" && "icon" in item && (
                                     <div className="flex items-center gap-2">
                                       {item.icon === "BookOpenIcon" && <BookOpenIcon size={16} className="text-muted" />}
@@ -165,7 +165,7 @@ export default function Header() {
                     ) : (
                       <NavigationMenuLink
                         href={link.href}
-                        className="text-[#6B4EFF] hover:text-[#5C3AD2] py-1.5 font-medium"
+                        className="text-[#432dd7] hover:text-[#3a26bf] py-1.5 font-medium"
                       >
                         {link.label}
                       </NavigationMenuLink>
@@ -179,13 +179,13 @@ export default function Header() {
 
         {/* Right side buttons */}
         <div className="flex items-center gap-2">
-          <Button asChild variant="ghost" size="sm" className="text-sm text-[#6B4EFF] hover:bg-[#EDE9F9]">
+          <Button asChild variant="ghost" size="sm" className="text-sm text-[#432dd7] hover:bg-[#DDD9FF]">
             <a href="/login">Sign In</a>
           </Button>
           <Button
             asChild
             size="sm"
-            className="text-sm bg-gradient-to-r from-[#7C5BFF] to-[#5D3EFF] text-white hover:from-[#6B4EFF] hover:to-[#4C32E2]"
+            className="text-sm bg-gradient-to-r from-[#5B46E6] to-[#432dd7] text-white hover:from-[#694fe9] hover:to-[#362fc1]"
           >
             <a href="/register">Get Started</a>
           </Button>
@@ -194,4 +194,3 @@ export default function Header() {
     </header>
   );
 }
-

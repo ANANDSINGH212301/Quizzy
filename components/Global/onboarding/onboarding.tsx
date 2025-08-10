@@ -13,7 +13,6 @@ const Onboarding: React.FC = () => {
     return `https://avatar.iran.liara.run/public/${index}.png`;
   };
 
-  // Automatically generate avatar on page load
   useEffect(() => {
     setAvatarUrl(generateRandomAvatar());
   }, []);
@@ -23,34 +22,31 @@ const Onboarding: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-100 to-purple-100 p-6">
-      <div className="w-full max-w-5xl min-h-[600px] rounded-xl shadow-xl p-8 flex flex-col md:flex-row gap-8 border-2 border-purple-500 relative z-0 bg-gradient-to-br from-white via-purple-50 to-white">
-        {/* Header Row */}
-        <div className="mb-8 flex w-full items-center absolute">
-          <Link href="/" className="flex items-center">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-6 py-10">
+      <div className="w-full max-w-5xl rounded-xl shadow-lg border border-gray-200 bg-white p-8 flex flex-col md:flex-row gap-8">
+        
+        {/* Header */}
+        <div className="absolute top-6 left-6 flex items-center">
+          <Link href="/" className="flex items-center hover:opacity-80">
             <Logo />
-            <span className="text-xl font-bold text-purple-800 ml-2">
+            <span className="text-xl font-bold text-gray-800 ml-2">
               Quizzy
             </span>
           </Link>
-          <h2 className="text-xl md:text-2xl font-extrabold absolute left-100 bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text">
-            OnBoarding
-          </h2>
         </div>
 
-        {/* Left Side */}
+        {/* Left Column */}
         <div className="md:w-1/2 flex flex-col justify-center items-center gap-6 text-center">
           <div>
-            <h1 className="text-3xl font-bold text-purple-800">
-              Welcome to <span className="text-yellow-500">Quizze!</span>
+            <h1 className="text-3xl font-semibold text-gray-900">
+              Welcome to <span className="text-indigo-600">Quizzy</span>
             </h1>
-            <p className="text-purple-600 mt-1 text-sm">
-              Set up your profile to get personalized quizzes and affiliate
-              rewards.
+            <p className="text-gray-500 mt-1 text-sm">
+              Let’s set up your profile so we can tailor quizzes just for you.
             </p>
           </div>
 
-          <div className="relative h-32 w-32 rounded-full overflow-hidden bg-yellow-300 shadow-md">
+          <div className="relative h-32 w-32 rounded-full overflow-hidden bg-gray-200 shadow-md">
             {avatarUrl && (
               <Image
                 src={avatarUrl}
@@ -64,31 +60,31 @@ const Onboarding: React.FC = () => {
           <button
             type="button"
             onClick={handleRandomAvatar}
-            className="bg-purple-700 text-white rounded-md px-4 py-2 flex items-center hover:bg-purple-800 transition-colors"
+            className="bg-indigo-600 text-white rounded-md px-4 py-2 flex items-center hover:bg-indigo-700 transition-colors"
           >
             <ShuffleIcon className="size-4 mr-2" />
-            Generate Random Avatar
+            Randomize Avatar
           </button>
 
           <div className="w-full px-6">
-            <label className="block text-sm font-medium mb-1 text-purple-800 text-left">
+            <label className="block text-sm font-medium mb-1 text-gray-700 text-left">
               Full Name
             </label>
             <input
               type="text"
-              className="w-full border px-3 py-2 rounded-md focus:outline-purple-500"
+              className="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="John Doe"
             />
           </div>
         </div>
 
-        {/* Right Side */}
-        <div className="md:w-1/2 flex flex-col justify-center gap-4 z-10">
+        {/* Right Column */}
+        <div className="md:w-1/2 flex flex-col justify-center gap-4">
           <div>
-            <label className="block text-sm font-medium mb-1 text-purple-800">
+            <label className="block text-sm font-medium mb-1 text-gray-700">
               Interested Quiz Types
             </label>
-            <select className="border px-3 py-2 rounded-md w-full bg-white focus:outline-purple-500 appearance-none">
+            <select className="border border-gray-300 px-3 py-2 rounded-md w-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
               <option value="">Select quiz type</option>
               <option value="mcq">Multiple Choice</option>
               <option value="personality">Personality</option>
@@ -98,11 +94,11 @@ const Onboarding: React.FC = () => {
           </div>
 
           <div className="flex items-center justify-between gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-1 text-purple-800">
+            <div className="flex-1">
+              <label className="block text-sm font-medium mb-1 text-gray-700">
                 Gender
               </label>
-              <select className="border px-3 py-2 rounded-md w-48 bg-white focus:outline-purple-500 appearance-none">
+              <select className="border border-gray-300 px-3 py-2 rounded-md w-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 <option value="">Select gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -110,42 +106,42 @@ const Onboarding: React.FC = () => {
               </select>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-1 text-purple-800">
+            <div className="flex-1">
+              <label className="block text-sm font-medium mb-1 text-gray-700">
                 Age
               </label>
               <input
                 type="number"
-                className="w-full border px-3 py-2 rounded-md focus:outline-purple-500"
+                className="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="18"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1 text-purple-800">
+            <label className="block text-sm font-medium mb-1 text-gray-700">
               Short Bio
             </label>
             <textarea
-              className="w-full border px-3 py-2 rounded-md min-h-[44px] focus:outline-purple-500"
-              placeholder="Why are you excited to take quizzes and earn rewards?"
+              className="w-full border border-gray-300 px-3 py-2 rounded-md min-h-[44px] focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Why are you excited to take quizzes?"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1 text-purple-800">
+            <label className="block text-sm font-medium mb-1 text-gray-700">
               Location
             </label>
             <input
               type="text"
-              className="w-full border px-3 py-2 rounded-md focus:outline-purple-500"
+              className="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="e.g., Mumbai, India"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-yellow-400 text-purple-900 w-full rounded-md py-3 font-semibold mt-2 hover:bg-yellow-500 transition"
+            className="bg-indigo-600 text-white w-full rounded-md py-3 font-semibold mt-2 hover:bg-indigo-700 transition"
           >
             Start Your Quiz Journey
           </button>

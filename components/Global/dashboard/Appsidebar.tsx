@@ -49,6 +49,7 @@ export function AppSidebar() {
           <span className="text-xl font-bold text-gray-800">Quizzy</span>
         </Link>
 
+
       </SidebarHeader>
       <Separator className="mt-[11px]" />
 
