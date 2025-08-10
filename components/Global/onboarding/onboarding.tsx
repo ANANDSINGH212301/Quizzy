@@ -22,16 +22,17 @@ const Onboarding: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-6 py-10">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-6 py-10">
+      <div className="text-3xl font-bold text-indigo-600 mb-5">
+        Onboarding
+      </div>
+
       <div className="w-full max-w-5xl rounded-xl shadow-lg border border-gray-200 bg-white p-8 flex flex-col md:flex-row gap-8">
-        
         {/* Header */}
         <div className="absolute top-6 left-6 flex items-center">
           <Link href="/" className="flex items-center hover:opacity-80">
             <Logo />
-            <span className="text-xl font-bold text-gray-800 ml-2">
-              Quizzy
-            </span>
+            <span className="text-xl font-bold text-gray-800 ml-2">Quizzy</span>
           </Link>
         </div>
 
@@ -39,14 +40,14 @@ const Onboarding: React.FC = () => {
         <div className="md:w-1/2 flex flex-col justify-center items-center gap-6 text-center">
           <div>
             <h1 className="text-3xl font-semibold text-gray-900">
-              Welcome to <span className="text-indigo-600">Quizzy</span>
+              Welcome to <span className="text-indigo-600">Quizzy !</span>
             </h1>
             <p className="text-gray-500 mt-1 text-sm">
               Let’s set up your profile so we can tailor quizzes just for you.
             </p>
           </div>
 
-          <div className="relative h-32 w-32 rounded-full overflow-hidden bg-gray-200 shadow-md">
+          <div className="relative h-32 w-32 rounded-full overflow-hidden bg-gray-200 shadow-md ring-4 ring-indigo-100">
             {avatarUrl && (
               <Image
                 src={avatarUrl}
