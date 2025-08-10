@@ -3,20 +3,33 @@
 import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/lib/AuthContext";
 
 const bottomLinks = [
- 
   {
-    label: "Logout",
-    href: "/logout",
-    icon: <IoLogOutOutline className="size-5" />,
+    label: "Settings",
+    href: "/settings",
+    icon: <IoSettingsOutline className="size-5" />,
   },
 ];
 
 const DashboardSidebarBottomMenu = () => {
   const pathname = usePathname();
+  const { logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push('/login');
+    } catch (error) {
+      console.error('Logout error:', error);
+      // Even if logout fails, redirect to login
+      router.push('/login');
+    }
+  };
 
   return (
     <nav className="flex flex-col gap-2 p-4 mt-auto">
@@ -46,6 +59,16 @@ const DashboardSidebarBottomMenu = () => {
           </Link>
         );
       })}
+      
+      {/* Logout Button */}
+      <Button
+        variant="ghost"
+        onClick={handleLogout}
+        className="w-full justify-start gap-2 p-3 text-red-600 hover:bg-red-50 hover:text-red-700"
+      >
+        <IoLogOutOutline className="size-5" />
+        <span>Logout</span>
+      </Button>
     </nav>
   );
 };

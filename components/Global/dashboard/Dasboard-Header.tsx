@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import {
   DropdownMenu,
@@ -9,8 +11,18 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import ProfileAvatar from "./profile";
+import { useAuth } from "@/lib/AuthContext";
+import { useRouter } from "next/navigation";
 
 const DasboardHeader = () => {
+  const { logout, user } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/login');
+  };
+
   return (
     <div className="flex justify-between items-center min-h-14 shadow p-3.5 gap-4">
       {/* Sidebar Toggle - Larger Icon */}
@@ -33,6 +45,10 @@ const DasboardHeader = () => {
             <DropdownMenuItem>Billing</DropdownMenuItem>
             <DropdownMenuItem>Team</DropdownMenuItem>
             <DropdownMenuItem>Subscription</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={handleLogout} className="text-red-600">
+              Logout
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

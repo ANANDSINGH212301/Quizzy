@@ -1,8 +1,20 @@
+<<<<<<< Updated upstream
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+=======
+'use client'
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { useAuth } from '@/lib/AuthContext';
+import { useRouter } from 'next/navigation';
+import { loginSchema } from '@/lib/schema/authschema';
+>>>>>>> Stashed changes
 
 const LoginForm = () => {
+  const { login } = useAuth();
+  const router = useRouter();
+  
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -10,6 +22,8 @@ const LoginForm = () => {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -19,10 +33,37 @@ const LoginForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+<<<<<<< Updated upstream
     console.log("Login submitted:", formData);
     // Email/password login logic here
+=======
+    setError('');
+    setIsDisabled(true);
+    
+    console.log('Login attempt with:', { email: formData.email });
+    
+    try {
+      loginSchema.parse(formData);
+
+      await login(formData.email, formData.password);
+      console.log('Login successful, redirecting to dashboard');
+      // Redirect to dashboard after successful login
+      router.push('/dashboard');
+    } catch (err: any) {
+      if (err instanceof z.ZodError) {
+        // If Zod validation error occurs, display the validation error messages
+        const errorMessages = err.errors.map((e) => e.message).join(', ');
+        setError(errorMessages);  // Display validation errors to the user
+      } else {
+        // If other errors occur (e.g., server issues, incorrect credentials)
+        setError(err.message || 'Login failed. Please try again.');
+      }
+    } finally {
+      setIsDisabled(false);  // Re-enable form to allow further actions if needed
+    }
+>>>>>>> Stashed changes
   };
 
   return (
@@ -35,6 +76,12 @@ const LoginForm = () => {
 
       {/* Login Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Error Display */}
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            {error}
+          </div>
+        )}
         {/* Email Field */}
         <div>
           <div className="relative">
@@ -58,6 +105,7 @@ const LoginForm = () => {
               id="email"
               name="email"
               value={formData.email}
+              disabled={isDisabled}
               onChange={handleInputChange}
               placeholder="Enter your email"
               className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
@@ -89,6 +137,7 @@ const LoginForm = () => {
               id="password"
               name="password"
               value={formData.password}
+              disabled={isDisabled}
               onChange={handleInputChange}
               placeholder="Enter your password"
               className="w-full pl-10 pr-12 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
@@ -146,6 +195,7 @@ const LoginForm = () => {
               id="rememberMe"
               name="rememberMe"
               checked={formData.rememberMe}
+              disabled={isDisabled}
               onChange={handleInputChange}
               className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
             />
@@ -167,6 +217,7 @@ const LoginForm = () => {
         {/* Sign In Button */}
         <button
           type="submit"
+          disabled={isDisabled}
           className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         >
           Sign In
@@ -198,6 +249,7 @@ const LoginForm = () => {
         {/* Google Login Button */}
         <button
           type="button"
+          disabled={isDisabled}
           className="w-full flex items-center justify-center px-6 py-2 border border-gray-300 rounded-sm hover:bg-gray-50 transition-colors duration-200"
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
