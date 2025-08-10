@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // DashboardPage.tsx
 
 import React from "react";
@@ -57,6 +58,26 @@ import { Progress } from '@/components/ui/progress'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
 const DashboardPage = () => {
+=======
+import React from 'react'
+import { useAuth } from '@/lib/AuthContext'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { 
+  User, 
+  BookOpen, 
+  Trophy, 
+  TrendingUp, 
+  Calendar,
+  Target,
+  Award
+} from 'lucide-react'
+import { Progress } from '@/components/ui/progress'
+import { ScrollArea } from '@/components/ui/scroll-area'
+
+const DashboardPage = () => {
+>>>>>>> 6a60243a2d2c995c92270cb8fd67af4b8564b44f
   const { user, loading } = useAuth()
   const [mounted, setMounted] = React.useState(false)
 

@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 "use client";
+=======
+'use client'
+>>>>>>> 6a60243a2d2c995c92270cb8fd67af4b8564b44f
 =======
 'use client'
 >>>>>>> 6a60243a2d2c995c92270cb8fd67af4b8564b44f
@@ -30,6 +34,9 @@ const DasboardHeader = () => {
     router.push('/login');
   };
 
+<<<<<<< HEAD
+>>>>>>> 6a60243a2d2c995c92270cb8fd67af4b8564b44f
+=======
 >>>>>>> 6a60243a2d2c995c92270cb8fd67af4b8564b44f
   return (
     <header className="flex items-center justify-between h-[4.1rem] px-4 shadow-sm border-b border-gray-200 bg-white">
