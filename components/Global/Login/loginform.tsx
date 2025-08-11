@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { useAuth } from '@/lib/AuthContext';
-import { useRouter } from 'next/navigation';
-import { loginSchema } from '@/lib/schema/authschema';
-import * as z from "zod";
+"use client";
 
+import React, { useState } from "react";
+import Link from "next/link";
+import { useAuth } from "@/lib/AuthContext";
+import { useRouter } from "next/navigation";
+import { loginSchema } from "@/lib/schema/authschema";
+import * as z from "zod";
 
 const LoginForm = () => {
   const { login } = useAuth();
   const router = useRouter();
-  
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,7 +19,7 @@ const LoginForm = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -33,35 +34,35 @@ const LoginForm = () => {
 
     console.log("Login submitted:", formData);
     // Email/password login logic here
-    setError('');
+    setError("");
     setIsDisabled(true);
-    
-    console.log('Login attempt with:', { email: formData.email });
-    
+
+    console.log("Login attempt with:", { email: formData.email });
+
     try {
       loginSchema.parse(formData);
-
       await login(formData.email, formData.password);
-      console.log('Login successful, redirecting to dashboard');
+      console.log("Login successful, redirecting to dashboard");
       // Redirect to dashboard after successful login
-      router.push('/dashboard');
-    } catch (err: any) {
+      router.push("/dashboard");
+    } catch (err) {
       if (err instanceof z.ZodError) {
-       
         // const errorMessages = err.errors.map((e) => e.message).join(', ');
         // setError(errorMessages);  // Display validation errors to the user
+      } else if (err instanceof Error) {
+        // If it's a regular Error object
+        setError(err.message);
       } else {
-        // If other errors occur (e.g., server issues, incorrect credentials)
-        setError(err.message || 'Login failed. Please try again.');
+        // Fallback if it's some unknown error type
+        setError("Login failed. Please try again.");
       }
     } finally {
-      setIsDisabled(false);  // Re-enable form to allow further actions if needed
+      setIsDisabled(false); // Re-enable form to allow further actions if needed
     }
-
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-md mx-auto h-[74vh]">
       {/* Header */}
       <div className="text-center mb-7">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Sign In</h1>

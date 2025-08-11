@@ -7,8 +7,9 @@ import { useRouter } from "next/navigation";
 const RegisterForm = () => {
   const { signup } = useAuth();
   const router = useRouter();
-  
+
   const [formData, setFormData] = useState({
+    fullName: "",
     email: "",
     password: "",
     agreeToTerms: false,
@@ -30,19 +31,28 @@ const RegisterForm = () => {
     e.preventDefault();
     setError("");
     setIsDisabled(true);
-    
-    console.log("Registration attempt with:", { email: formData.email });
-    
+
+    console.log("Registration attempt with:", {
+      fullName: formData.fullName,
+      email: formData.email,
+    });
+
     try {
       // Create username from email (remove @ and everything after)
-      const username = formData.email.split('@')[0];
-      
+      const username = formData.email.split("@")[0];
+
       await signup(username, formData.email, formData.password);
       console.log("Registration successful, redirecting to dashboard");
-      router.push('/dashboard');
-    } catch (err: any) {
+      router.push("/dashboard");
+    } catch (err) {
       console.error("Registration failed:", err);
-      setError(err.message || "Registration failed. Please try again.");
+
+      // Safely check for message
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Registration failed. Please try again.");
+      }
     } finally {
       setIsDisabled(false);
     }
@@ -52,8 +62,12 @@ const RegisterForm = () => {
     <div className="w-full max-w-md mx-auto">
       {/* Header */}
       <div className="text-center mb-7">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
-        <p className="text-gray-600">Join Quizzy and start your learning journey</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          Create Account
+        </h1>
+        <p className="text-gray-600">
+          Join Quizzy and start your learning journey
+        </p>
       </div>
 
       {/* Registration Form */}
@@ -64,6 +78,39 @@ const RegisterForm = () => {
             {error}
           </div>
         )}
+
+        {/* Full Name Field */}
+        <div>
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg
+                className="h-5 w-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5.121 17.804A4 4 0 0112 14a4 4 0 016.879 3.804M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleInputChange}
+              disabled={isDisabled}
+              placeholder="Enter your full name"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              required
+            />
+          </div>
+        </div>
 
         {/* Email Field */}
         <div>

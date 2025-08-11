@@ -1,6 +1,6 @@
 "use client";
 
-import { IoLogOutOutline } from "react-icons/io5";
+import { IoLogOutOutline,IoSettingsOutline } from "react-icons/io5";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
